@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QDate>
 
 int main(int argc, char *argv[])
 {
