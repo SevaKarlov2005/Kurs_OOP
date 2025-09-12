@@ -14,12 +14,12 @@ private:
     QString to;
     QDate date;
     QTime time;
-    unsigned all_place;
-    unsigned free_place;
+    unsigned short all_place;
+    unsigned short free_place;
 public:
     Flight();
     Flight(const QString& num_flight, const QString& company, const QString& from, const QString& to,
-           const QDate& date, const QTime& time, const unsigned& all_place, const unsigned& free_place);
+           const QDate& date, const QTime& time, const unsigned short& all_place, const unsigned short& free_place);
     void SetNumFlight(const QString& num_flight);
     QString GetNumFlight();
     void SetCompany(const QString& company);
@@ -32,10 +32,10 @@ public:
     QDate GetDate();
     void SetTime(const QTime& time);
     QTime GetTime();
-    void SetAllPlace(const unsigned& all_place);
-    unsigned GetAllPlace();
-    void SetFreePlace(const unsigned& free_place);
-    unsigned GetFreePlace();
+    void SetAllPlace(const unsigned short& all_place);
+    unsigned short GetAllPlace();
+    void SetFreePlace(const unsigned short& free_place);
+    unsigned short GetFreePlace();
 };
 
 #endif // FLIGHT_H

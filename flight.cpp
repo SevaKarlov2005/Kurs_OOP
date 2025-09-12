@@ -6,7 +6,7 @@ Flight::Flight()
 }
 
 Flight::Flight(const QString& num_flight, const QString& company, const QString& from, const QString& to,
-               const QDate& date, const QTime& time, const unsigned& all_place, const unsigned& free_place)
+               const QDate& date, const QTime& time, const unsigned short& all_place, const unsigned short& free_place)
 {
     this->num_flight = num_flight;
     this->company = company;
@@ -78,22 +78,22 @@ QTime Flight::GetTime()
     return this->time;
 }
 
-void Flight::SetAllPlace(const unsigned& all_place)
+void Flight::SetAllPlace(const unsigned short& all_place)
 {
     this->all_place = all_place;
 }
 
-unsigned Flight::GetAllPlace()
+unsigned short Flight::GetAllPlace()
 {
     return this->all_place;
 }
 
-void Flight::SetFreePlace(const unsigned& free_place)
+void Flight::SetFreePlace(const unsigned short& free_place)
 {
     this->free_place = free_place;
 }
 
-unsigned Flight::GetFreePlace()
+unsigned short Flight::GetFreePlace()
 {
     return this->free_place;
 }

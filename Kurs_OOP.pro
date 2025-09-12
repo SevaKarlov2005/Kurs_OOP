@@ -9,16 +9,22 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    airport.cpp \
     flight.cpp \
     main.cpp \
     mainwindow.cpp \
     passenger.cpp \
+    purpose.cpp \
+    staff.cpp \
     ticket.cpp
 
 HEADERS += \
+    airport.h \
     flight.h \
     mainwindow.h \
     passenger.h \
+    purpose.h \
+    staff.h \
     ticket.h
 
 FORMS += \
