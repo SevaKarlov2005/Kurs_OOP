@@ -6,7 +6,8 @@ Flight::Flight()
 }
 
 Flight::Flight(const QString& num_flight, const QString& company, const QString& from, const QString& to,
-               const QDate& date, const QTime& time, const unsigned short& all_place, const unsigned short& free_place)
+               const QDate& date, const QTime& time, const FlightState& state,
+               const unsigned short& all_place, const unsigned short& free_place)
 {
     this->num_flight = num_flight;
     this->company = company;
@@ -14,6 +15,7 @@ Flight::Flight(const QString& num_flight, const QString& company, const QString&
     this->to = to;
     this->date = date;
     this->time = time;
+    this->state = state;
     this->all_place = all_place;
     this->free_place = free_place;
 }
@@ -76,6 +78,16 @@ void Flight::SetTime(const QTime& time)
 QTime Flight::GetTime()
 {
     return this->time;
+}
+
+void Flight::SetState(const FlightState& state)
+{
+    this->state = state;
+}
+
+FlightState Flight::GetState()
+{
+    return this->state;
 }
 
 void Flight::SetAllPlace(const unsigned short& all_place)

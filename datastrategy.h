@@ -6,7 +6,7 @@
 class DataStrategy
 {
 public:
-    virtual ~DataStrategy();
+    virtual ~DataStrategy() {};
     virtual void Insert(QSqlQuery* query, const QString& data) = 0;
     virtual void Update(QSqlQuery* query, const QString& data) = 0;
     virtual void Delete(QSqlQuery* query, const QString& data) = 0;

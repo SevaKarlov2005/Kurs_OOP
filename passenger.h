@@ -7,13 +7,13 @@
 class Passenger
 {
 private:
-    QString num_passport;
-    QString place_passport;
-    QDate date_passport;
-    QString surname;
-    QString name;
-    QString patronym;
-    QDate birthday;
+    QString num_passport; // Номер паспорта
+    QString place_passport; // Место выдачи паспорта
+    QDate date_passport; // Дата выдачи паспорта
+    QString surname; // Фамилия пассажира
+    QString name; // Имя пассажира
+    QString patronym; // Отчество пассажира
+    QDate birthday; // Дата рождения
 public:
     Passenger();
     Passenger(const QString& num_passport, const QString& place_passport, const QDate& date_passport,

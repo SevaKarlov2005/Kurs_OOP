@@ -11,10 +11,11 @@ private:
 public:
     Storage();
     T GetItem(const int& index);
-    int FindItem(const T& value);
+    int FindItem(const T& value, bool (*func)(T& cur, T& seek));
     void AddItem(const T& value);
     void RemoveItem(const int& index);
     void UpdateItem(const T& value, const int& index);
+    void Clear();
     unsigned GetSize();
 };
 
@@ -31,9 +32,19 @@ T Storage<T>::GetItem(const int& index)
 }
 
 template <typename T>
-int Storage<T>::FindItem(const T& value)
+int Storage<T>::FindItem(const T& value, bool (*func)(T& cur, T& seek))
 {
-    return this->list.indexOf(value);
+    int i = 0;
+
+    for (auto it = this->list.cbegin(); it != this->list.cend(); ++it)
+    {
+        if (func(*it, value))
+            break;
+        else
+            i++;
+    }
+
+    return i == this->list.size() ? -1 : i;
 }
 
 template <typename T>
@@ -52,6 +63,12 @@ template <typename T>
 void Storage<T>::UpdateItem(const T& value, const int& index)
 {
     this->list.replace(index, value);
+}
+
+template <typename T>
+void Storage<T>::Clear()
+{
+    this->list.clear();
 }
 
 template <typename T>

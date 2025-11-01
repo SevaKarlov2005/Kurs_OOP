@@ -1,10 +1,16 @@
 #include "memento.h"
 
-Memento::Memento(const Table& table, const Action& action, const QString& data)
+Memento::Memento(const unsigned& count, const Table& table, const Action& action, const QString& data)
 {
+    this->count = count;
     this->table = table;
     this->action = action;
     this->data = data;
+}
+
+unsigned Memento::GetCount()
+{
+    return this->count;
 }
 
 Table Memento::GetTable()

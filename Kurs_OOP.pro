@@ -10,30 +10,49 @@ CONFIG += c++17
 
 SOURCES += \
     airport.cpp \
+    airportstrategy.cpp \
+    airporttablemodel.cpp \
     caretaker.cpp \
     connection.cpp \
+    database.cpp \
     flight.cpp \
+    flightstrategy.cpp \
     main.cpp \
     mainwindow.cpp \
     memento.cpp \
     passenger.cpp \
+    passengerstrategy.cpp \
     purpose.cpp \
+    purposestrategy.cpp \
     staff.cpp \
-    ticket.cpp
+    staffstrategy.cpp \
+    strategycreator.cpp \
+    ticket.cpp \
+    ticketstrategy.cpp
 
 HEADERS += \
     airport.h \
+    airportstrategy.h \
+    airporttablemodel.h \
     caretaker.h \
     connection.h \
+    creator.h \
+    database.h \
     datastrategy.h \
     flight.h \
+    flightstrategy.h \
     mainwindow.h \
     memento.h \
     passenger.h \
+    passengerstrategy.h \
     purpose.h \
+    purposestrategy.h \
     staff.h \
+    staffstrategy.h \
     storage.h \
-    ticket.h
+    strategycreator.h \
+    ticket.h \
+    ticketstrategy.h
 
 FORMS += \
     mainwindow.ui
@@ -42,3 +61,5 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=

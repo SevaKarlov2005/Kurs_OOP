@@ -3,14 +3,14 @@
 
 #include <QString>
 
-enum Nomination {FirstPilot, SecondPilot, ChiefAttendant, Attendant};
+enum Nomination {FIRST_PILOT, SECOND_PILOT, CHIEF_ATTENDANT, FLIGHT_ATTENDANT, FLIGHT_ENGINEER};
 
 class Purpose
 {
 private:
-    Nomination name;
-    QString num_flight;
-    QString num_certificate;
+    Nomination name; // Специальность на борту
+    QString num_flight; // Номер авиарейса
+    QString num_certificate; // Номер удостоверения
 public:
     Purpose();
     Purpose(const Nomination& name, const QString& num_flight, const QString& num_certificate);

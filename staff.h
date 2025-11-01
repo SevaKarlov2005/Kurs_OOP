@@ -3,16 +3,16 @@
 
 #include <QString>
 
-enum Profession {Pilot, FlightAttendant};
+enum Profession {PILOT, ATTENDANT, ENGINEER};
 
 class Staff
 {
 private:
-    QString num_certificate;
-    QString surname;
-    QString name;
-    QString patronym;
-    Profession profession;
+    QString num_certificate; // Номер удостоверения
+    QString surname; // Фамилия сотрудника
+    QString name; // Имя сотрудника
+    QString patronym; // Отчество сотрудника
+    Profession profession; // Профессия сотрудника
 public:
     Staff();
     Staff(const QString& num_certificate, const QString& surname, const QString& name, const QString& patronym, const Profession& profession);

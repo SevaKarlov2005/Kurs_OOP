@@ -3,17 +3,19 @@
 
 #include <QString>
 
-enum Table {Airport, Flight, Passenger, Purpose, Staff, Ticket};
-enum Action {Insert, Delete, Update};
+enum Table {AIRPORT, FLIGHT, PASSENGER, PURPOSE, STAFF, TICKET};
+enum Action {INSERT, DELETE, UPDATE};
 
 class Memento
 {
 private:
+    unsigned count;
     Table table;
     Action action;
     QString data;
 public:
-    Memento(const Table& table, const Action& action, const QString& data);
+    Memento(const unsigned& count, const Table& table, const Action& action, const QString& data);
+    unsigned GetCount();
     Table GetTable();
     Action GetAction();
     QString GetData();
