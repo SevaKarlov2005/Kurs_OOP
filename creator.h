@@ -8,7 +8,7 @@ class Creator
 {
 public:
     virtual ~Creator() {};
-    virtual DataStrategy* FactoryMethod(const Table& table) = 0;
+    virtual DataStrategy* FactoryMethod(const Table& table) const = 0;
 };
 
 #endif // CREATOR_H

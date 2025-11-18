@@ -19,19 +19,19 @@ public:
     Passenger(const QString& num_passport, const QString& place_passport, const QDate& date_passport,
               const QString& surname, const QString& name, const QString& patronym, const QDate& birthday);
     void SetNumPassport(const QString& num_passport);
-    QString GetNumPassport();
+    QString GetNumPassport() const;
     void SetPlacePassport(const QString& place_passport);
-    QString GetPlacePassport();
+    QString GetPlacePassport() const;
     void SetDatePassport(const QDate& date_passport);
-    QDate GetDatePassport();
+    QDate GetDatePassport() const;
     void SetSurname(const QString& surname);
-    QString GetSurname();
+    QString GetSurname() const;
     void SetName(const QString& name);
-    QString GetName();
+    QString GetName() const;
     void SetPatronym(const QString& patronym);
-    QString GetPatronym();
+    QString GetPatronym() const;
     void SetBirthday(const QDate& birthday);
-    QDate GetBirthday();
+    QDate GetBirthday() const;
 };
 
 #endif // PASSENGER_H

@@ -17,15 +17,15 @@ public:
     Staff();
     Staff(const QString& num_certificate, const QString& surname, const QString& name, const QString& patronym, const Profession& profession);
     void SetNumCertificate(const QString& num_certificate);
-    QString GetNumCertificate();
+    QString GetNumCertificate() const;
     void SetSurname(const QString& surname);
-    QString GetSurname();
+    QString GetSurname() const;
     void SetName(const QString& name);
-    QString GetName();
+    QString GetName() const;
     void SetPatronym(const QString& patronym);
-    QString GetPatronym();
+    QString GetPatronym() const;
     void SetProfession(const Profession& num_certificate);
-    Profession GetProfession();
+    Profession GetProfession() const;
 };
 
 #endif // STAFF_H

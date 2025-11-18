@@ -10,13 +10,13 @@ private:
     QList<T> list;
 public:
     Storage();
-    T GetItem(const int& index);
-    int FindItem(const T& value, bool (*func)(T& cur, T& seek));
+    T GetItem(const int& index) const;
+    int FindItem(const T& value, bool (*func)(const T& cur, const T& seek)) const;
     void AddItem(const T& value);
     void RemoveItem(const int& index);
     void UpdateItem(const T& value, const int& index);
     void Clear();
-    unsigned GetSize();
+    unsigned GetSize() const;
 };
 
 template <typename T>
@@ -26,13 +26,13 @@ Storage<T>::Storage()
 }
 
 template <typename T>
-T Storage<T>::GetItem(const int& index)
+T Storage<T>::GetItem(const int& index) const
 {
     return this->list.value(index);
 }
 
 template <typename T>
-int Storage<T>::FindItem(const T& value, bool (*func)(T& cur, T& seek))
+int Storage<T>::FindItem(const T& value, bool (*func)(const T& cur, const T& seek)) const
 {
     int i = 0;
 
@@ -72,7 +72,7 @@ void Storage<T>::Clear()
 }
 
 template <typename T>
-unsigned Storage<T>::GetSize()
+unsigned Storage<T>::GetSize() const
 {
     return this->list.size();
 }

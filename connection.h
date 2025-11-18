@@ -22,11 +22,11 @@ public:
     Connection(const QString& db_name);
     ~Connection();
     void ChangeStrategy(DataStrategy* strategy);
-    void Insert(const QString& data);
-    void Update(const QString& data);
-    void Delete(const QString& data);
+    void Insert(const QString& data) const;
+    void Update(const QString& data) const;
+    void Delete(const QString& data) const;
     void Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, Storage<Passenger>* passenger_st,
-              Storage<Purpose>* purpose_st, Storage<Staff>* staff_st, Storage<Ticket>* ticket_st);
+              Storage<Purpose>* purpose_st, Storage<Staff>* staff_st, Storage<Ticket>* ticket_st) const;
 };
 
 #endif // CONNECTION_H

@@ -18,7 +18,7 @@ void Staff::SetNumCertificate(const QString& num_certificate)
     this->num_certificate = num_certificate;
 }
 
-QString Staff::GetNumCertificate()
+QString Staff::GetNumCertificate() const
 {
     return this->num_certificate;
 }
@@ -28,7 +28,7 @@ void Staff::SetSurname(const QString& surname)
     this->surname = surname;
 }
 
-QString Staff::GetSurname()
+QString Staff::GetSurname() const
 {
     return this->surname;
 }
@@ -38,7 +38,7 @@ void Staff::SetName(const QString& name)
     this->name = name;
 }
 
-QString Staff::GetName()
+QString Staff::GetName() const
 {
     return this->name;
 }
@@ -48,7 +48,7 @@ void Staff::SetPatronym(const QString& patronym)
     this->patronym = patronym;
 }
 
-QString Staff::GetPatronym()
+QString Staff::GetPatronym() const
 {
     return this->patronym;
 }
@@ -58,7 +58,7 @@ void Staff::SetProfession(const Profession& profession)
     this->profession = profession;
 }
 
-Profession Staff::GetProfession()
+Profession Staff::GetProfession() const
 {
     return this->profession;
 }

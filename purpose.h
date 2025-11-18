@@ -15,11 +15,11 @@ public:
     Purpose();
     Purpose(const Nomination& name, const QString& num_flight, const QString& num_certificate);
     void SetName(const Nomination& name);
-    Nomination GetName();
+    Nomination GetName() const;
     void SetNumFlight(const QString& num_flight);
-    QString GetNumFlight();
+    QString GetNumFlight() const;
     void SetNumCertificate(const QString& num_certificate);
-    QString GetNumCertificate();
+    QString GetNumCertificate() const;
 };
 
 #endif // PURPOSE_H

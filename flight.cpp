@@ -25,7 +25,7 @@ void Flight::SetNumFlight(const QString& num_flight)
     this->num_flight = num_flight;
 }
 
-QString Flight::GetNumFlight()
+QString Flight::GetNumFlight() const
 {
     return this->num_flight;
 }
@@ -35,7 +35,7 @@ void Flight::SetCompany(const QString& company)
     this->company = company;
 }
 
-QString Flight::GetCompany()
+QString Flight::GetCompany() const
 {
     return this->company;
 }
@@ -45,7 +45,7 @@ void Flight::SetFrom(const QString& from)
     this->from = from;
 }
 
-QString Flight::GetFrom()
+QString Flight::GetFrom() const
 {
     return this->from;
 }
@@ -55,7 +55,7 @@ void Flight::SetTo(const QString& to)
     this->to = to;
 }
 
-QString Flight::GetTo()
+QString Flight::GetTo() const
 {
     return this->to;
 }
@@ -65,7 +65,7 @@ void Flight::SetDate(const QDate& date)
     this->date = date;
 }
 
-QDate Flight::GetDate()
+QDate Flight::GetDate() const
 {
     return this->date;
 }
@@ -75,7 +75,7 @@ void Flight::SetTime(const QTime& time)
     this->time = time;
 }
 
-QTime Flight::GetTime()
+QTime Flight::GetTime() const
 {
     return this->time;
 }
@@ -85,7 +85,7 @@ void Flight::SetState(const FlightState& state)
     this->state = state;
 }
 
-FlightState Flight::GetState()
+FlightState Flight::GetState() const
 {
     return this->state;
 }
@@ -95,7 +95,7 @@ void Flight::SetAllPlace(const unsigned short& all_place)
     this->all_place = all_place;
 }
 
-unsigned short Flight::GetAllPlace()
+unsigned short Flight::GetAllPlace() const
 {
     return this->all_place;
 }
@@ -105,7 +105,7 @@ void Flight::SetFreePlace(const unsigned short& free_place)
     this->free_place = free_place;
 }
 
-unsigned short Flight::GetFreePlace()
+unsigned short Flight::GetFreePlace() const
 {
     return this->free_place;
 }

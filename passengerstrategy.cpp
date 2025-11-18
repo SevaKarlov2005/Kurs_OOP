@@ -1,6 +1,6 @@
 #include "passengerstrategy.h"
 
-void PassengerStrategy::Insert(QSqlQuery* query, const QString& data)
+void PassengerStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -24,7 +24,7 @@ void PassengerStrategy::Insert(QSqlQuery* query, const QString& data)
                     .arg(str_list[6]));
 }
 
-void PassengerStrategy::Update(QSqlQuery* query, const QString& data)
+void PassengerStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -48,7 +48,7 @@ void PassengerStrategy::Update(QSqlQuery* query, const QString& data)
                     .arg(str_list[0]));
 }
 
-void PassengerStrategy::Delete(QSqlQuery* query, const QString& data)
+void PassengerStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 

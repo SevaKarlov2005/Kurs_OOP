@@ -1,6 +1,6 @@
 #include "ticketstrategy.h"
 
-void TicketStrategy::Insert(QSqlQuery* query, const QString& data)
+void TicketStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -16,7 +16,7 @@ void TicketStrategy::Insert(QSqlQuery* query, const QString& data)
                     .arg(str_list[2]));
 }
 
-void TicketStrategy::Update(QSqlQuery* query, const QString& data)
+void TicketStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -32,7 +32,7 @@ void TicketStrategy::Update(QSqlQuery* query, const QString& data)
                     .arg(str_list[0]));
 }
 
-void TicketStrategy::Delete(QSqlQuery* query, const QString& data)
+void TicketStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 

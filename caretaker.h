@@ -13,7 +13,7 @@ public:
     void AddState(const Memento& state);
     Memento GetFirst();
     Memento GetLast();
-    bool IsEmpty();
+    bool IsEmpty() const;
 };
 
 #endif // CARETAKER_H

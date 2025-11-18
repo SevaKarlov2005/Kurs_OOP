@@ -11,7 +11,6 @@ CONFIG += c++17
 SOURCES += \
     airport.cpp \
     airportstrategy.cpp \
-    airporttablemodel.cpp \
     caretaker.cpp \
     connection.cpp \
     database.cpp \
@@ -33,7 +32,6 @@ SOURCES += \
 HEADERS += \
     airport.h \
     airportstrategy.h \
-    airporttablemodel.h \
     caretaker.h \
     connection.h \
     creator.h \

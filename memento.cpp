@@ -8,22 +8,22 @@ Memento::Memento(const unsigned& count, const Table& table, const Action& action
     this->data = data;
 }
 
-unsigned Memento::GetCount()
+unsigned Memento::GetCount() const
 {
     return this->count;
 }
 
-Table Memento::GetTable()
+Table Memento::GetTable() const
 {
     return this->table;
 }
 
-Action Memento::GetAction()
+Action Memento::GetAction() const
 {
     return this->action;
 }
 
-QString Memento::GetData()
+QString Memento::GetData() const
 {
     return this->data;
 }

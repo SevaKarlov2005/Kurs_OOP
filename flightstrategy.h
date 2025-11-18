@@ -6,9 +6,9 @@
 class FlightStrategy : public DataStrategy
 {
 public:
-    void Insert(QSqlQuery* query, const QString& data) override;
-    void Update(QSqlQuery* query, const QString& data) override;
-    void Delete(QSqlQuery* query, const QString& data) override;
+    void Insert(QSqlQuery* query, const QString& data) const override;
+    void Update(QSqlQuery* query, const QString& data) const override;
+    void Delete(QSqlQuery* query, const QString& data) const override;
 };
 
 #endif // FLIGHTSTRATEGY_H

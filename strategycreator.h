@@ -6,7 +6,7 @@
 class StrategyCreator : public Creator
 {
 public:
-    DataStrategy* FactoryMethod(const Table& table) override;
+    DataStrategy* FactoryMethod(const Table& table) const override;
 };
 
 #endif // STRATEGYCREATOR_H

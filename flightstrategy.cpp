@@ -1,6 +1,6 @@
 #include "flightstrategy.h"
 
-void FlightStrategy::Insert(QSqlQuery* query, const QString& data)
+void FlightStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -28,7 +28,7 @@ void FlightStrategy::Insert(QSqlQuery* query, const QString& data)
                     .arg(str_list[8]));
 }
 
-void FlightStrategy::Update(QSqlQuery* query, const QString& data)
+void FlightStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -54,7 +54,7 @@ void FlightStrategy::Update(QSqlQuery* query, const QString& data)
                     .arg(str_list[17]));
 }
 
-void FlightStrategy::Delete(QSqlQuery* query, const QString& data)
+void FlightStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 

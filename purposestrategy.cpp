@@ -1,6 +1,6 @@
 #include "purposestrategy.h"
 
-void PurposeStrategy::Insert(QSqlQuery* query, const QString& data)
+void PurposeStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -16,7 +16,7 @@ void PurposeStrategy::Insert(QSqlQuery* query, const QString& data)
                     .arg(str_list[2]));
 }
 
-void PurposeStrategy::Update(QSqlQuery* query, const QString& data)
+void PurposeStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -32,7 +32,7 @@ void PurposeStrategy::Update(QSqlQuery* query, const QString& data)
                     .arg(str_list[0]));
 }
 
-void PurposeStrategy::Delete(QSqlQuery* query, const QString& data)
+void PurposeStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 

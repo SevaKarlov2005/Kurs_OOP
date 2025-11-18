@@ -1,6 +1,6 @@
 #include "staffstrategy.h"
 
-void StaffStrategy::Insert(QSqlQuery* query, const QString& data)
+void StaffStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -20,7 +20,7 @@ void StaffStrategy::Insert(QSqlQuery* query, const QString& data)
                 .arg(str_list[4]));
 }
 
-void StaffStrategy::Update(QSqlQuery* query, const QString& data)
+void StaffStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 
@@ -40,7 +40,7 @@ void StaffStrategy::Update(QSqlQuery* query, const QString& data)
                     .arg(str_list[0]));
 }
 
-void StaffStrategy::Delete(QSqlQuery* query, const QString& data)
+void StaffStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split("*", Qt::SkipEmptyParts);
 

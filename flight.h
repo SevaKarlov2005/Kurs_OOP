@@ -5,7 +5,7 @@
 #include <QDate>
 #include <QTime>
 
-enum FlightState {CHECK_IN, BOARDING, DELAYED, ESTIMATED, CANCELLED};
+enum FlightState {ON_TIME, CHECK_IN, BOARDING, DIVERTED, DELAYED, CANCELLED};
 
 class Flight
 {
@@ -25,23 +25,23 @@ public:
            const QDate& date, const QTime& time, const FlightState& state, const unsigned short& all_place,
            const unsigned short& free_place);
     void SetNumFlight(const QString& num_flight);
-    QString GetNumFlight();
+    QString GetNumFlight() const;
     void SetCompany(const QString& company);
-    QString GetCompany();
+    QString GetCompany() const;
     void SetFrom(const QString& from);
-    QString GetFrom();
+    QString GetFrom() const;
     void SetTo(const QString& to);
-    QString GetTo();
+    QString GetTo() const;
     void SetDate(const QDate& date);
-    QDate GetDate();
+    QDate GetDate() const;
     void SetTime(const QTime& time);
-    QTime GetTime();
+    QTime GetTime() const;
     void SetState(const FlightState& state);
-    FlightState GetState();
+    FlightState GetState() const;
     void SetAllPlace(const unsigned short& all_place);
-    unsigned short GetAllPlace();
+    unsigned short GetAllPlace() const;
     void SetFreePlace(const unsigned short& free_place);
-    unsigned short GetFreePlace();
+    unsigned short GetFreePlace() const;
 };
 
 #endif // FLIGHT_H

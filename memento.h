@@ -15,10 +15,10 @@ private:
     QString data;
 public:
     Memento(const unsigned& count, const Table& table, const Action& action, const QString& data);
-    unsigned GetCount();
-    Table GetTable();
-    Action GetAction();
-    QString GetData();
+    unsigned GetCount() const;
+    Table GetTable() const;
+    Action GetAction() const;
+    QString GetData() const;
 };
 
 #endif // MEMENTO_H

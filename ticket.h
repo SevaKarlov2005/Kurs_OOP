@@ -13,11 +13,11 @@ public:
     Ticket();
     Ticket(const QString& num_ticket, const QString& num_passport, const QString& num_flight);
     void SetNumTicket(const QString& num_ticket);
-    QString GetNumTicket();
+    QString GetNumTicket() const;
     void SetNumPassport(const QString& num_passport);
-    QString GetNumPassport();
+    QString GetNumPassport() const;
     void SetNumFlight(const QString& num_flight);
-    QString GetNumFlight();
+    QString GetNumFlight() const;
 };
 
 #endif // TICKET_H

@@ -20,7 +20,7 @@ Memento Caretaker::GetLast()
     return this->states.takeLast();
 }
 
-bool Caretaker::IsEmpty()
+bool Caretaker::IsEmpty() const
 {
     return this->states.isEmpty();
 }

@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "database.h"
-#include "airporttablemodel.h"
 #include <QSortFilterProxyModel>
 
 QT_BEGIN_NAMESPACE

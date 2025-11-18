@@ -1,6 +1,6 @@
 #include "airportstrategy.h"
 
-void AirportStrategy::Insert(QSqlQuery* query, const QString& data)
+void AirportStrategy::Insert(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -20,7 +20,7 @@ void AirportStrategy::Insert(QSqlQuery* query, const QString& data)
                 .arg(str_list[4]));
 }
 
-void AirportStrategy::Update(QSqlQuery* query, const QString& data)
+void AirportStrategy::Update(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
@@ -40,7 +40,7 @@ void AirportStrategy::Update(QSqlQuery* query, const QString& data)
                 .arg(str_list[0]));
 }
 
-void AirportStrategy::Delete(QSqlQuery* query, const QString& data)
+void AirportStrategy::Delete(QSqlQuery* query, const QString& data) const
 {
     QStringList str_list = data.split('*', Qt::SkipEmptyParts);
 
