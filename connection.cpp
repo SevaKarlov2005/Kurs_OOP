@@ -28,7 +28,7 @@ Connection::Connection(const QString& db_name)
                       "date_passport VARCHAR(10) NOT NULL,"
                       "surname VARCHAR(20) NOT NULL,"
                       "name VARCHAR(20) NOT NULL,"
-                      "patronym VARCHAR(20),"
+                      "patronym VARCHAR(20) NOT NULL,"
                       "birthday VARCHAR(10) NOT NULL"
                       ")");
 
@@ -38,7 +38,7 @@ Connection::Connection(const QString& db_name)
                       "num_certificate VARCHAR(9) NOT NULL UNIQUE,"
                       "surname VARCHAR(20) NOT NULL,"
                       "name VARCHAR(20) NOT NULL,"
-                      "patronym VARCHAR(20),"
+                      "patronym VARCHAR(20) NOT NULL,"
                       "profession VARCHAR(30) NOT NULL"
                       ")");
 
@@ -50,7 +50,7 @@ Connection::Connection(const QString& db_name)
                       "id_from INTEGER NOT NULL,"
                       "id_to INTEGER NOT NULL,"
                       "date VARCHAR(10) NOT NULL,"
-                      "time VARCHAR(8) NOT NULL,"
+                      "time VARCHAR(5) NOT NULL,"
                       "state VARCHAR(20) NOT NULL,"
                       "all_place INTEGER,"
                       "free_place INTEGER,"
@@ -142,7 +142,7 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
         unsigned short rainfall = (unsigned short)this->query->value("rainfall").toInt();
         unsigned short speed = (unsigned short)this->query->value("speed").toInt();
         unsigned short direction = (unsigned short)this->query->value("direction").toInt();
-        unsigned short temperature = (unsigned short)this->query->value("temperature").toInt();
+        unsigned short temperature = (short)this->query->value("temperature").toInt();
 
         airport_st->AddItem(Airport(name, rainfall, speed, direction, temperature));
     }
@@ -153,19 +153,11 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
     {
         QString num_passport = this->query->value("num_passport").toString();
         QString place_passport = this->query->value("place_passport").toString();
-        QDate date_passport = this->query->value("date_passport").toDate();
+        QDate date_passport = QDate::fromString(this->query->value("date_passport").toString(), "dd.MM.yyyy");
         QString surname = this->query->value("surname").toString();
         QString name = this->query->value("name").toString();
-
-        QVariant var = this->query->value("patronym");
-        QString patronym;
-
-        if (var.isNull())
-            patronym = "";
-        else
-            patronym = var.toString();
-
-        QDate birthday = this->query->value("birthday").toDate();
+        QString patronym = this->query->value("patronym").toString();
+        QDate birthday = QDate::fromString(this->query->value("birthday").toString(), "dd.MM.yyyy");
 
         passenger_st->AddItem(Passenger(num_passport, place_passport, date_passport, surname, name, patronym, birthday));
     }
@@ -177,14 +169,7 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
         QString num_certificate = this->query->value("num_certificate").toString();
         QString surname = this->query->value("surname").toString();
         QString name = this->query->value("name").toString();
-
-        QVariant var = this->query->value("patronym");
-        QString patronym;
-
-        if (var.isNull())
-            patronym = "";
-        else
-            patronym = var.toString();
+        QString patronym = this->query->value("patronym").toString();
 
         QString prof = this->query->value("profession").toString();
         Profession profession;
@@ -199,18 +184,18 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
         staff_st->AddItem(Staff(num_certificate, surname, name, patronym, profession));
     }
 
-    this->query->exec("SELECT f.num_flight, f.company, a1.airport_name as from, a2.airport_name as to, f.date, f.time, f.state, f.all_place, f.free_place"
-                      "FROM flight as f"
-                      "JOIN airport as a1 ON f.id_from = a1.id_airport"
+    this->query->exec("SELECT f.num_flight, f.company, a1.airport_name as fr, a2.airport_name as too, f.date, f.time, f.state, f.all_place, f.free_place "
+                      "FROM flight as f "
+                      "JOIN airport as a1 ON f.id_from = a1.id_airport "
                       "JOIN airport as a2 ON f.id_to = a2.id_airport");
 
     while (this->query->next())
     {
         QString num_flight = this->query->value("num_flight").toString();
         QString company = this->query->value("company").toString();
-        QString from = this->query->value("from").toString();
-        QString to = this->query->value("to").toString();
-        QDate date = this->query->value("date").toDate();
+        QString from = this->query->value("fr").toString();
+        QString to = this->query->value("too").toString();
+        QDate date = QDate::fromString(this->query->value("date").toString(), "dd.MM.yyyy");
         QTime time = this->query->value("time").toTime();
 
         QString st = this->query->value("state").toString();
@@ -235,9 +220,9 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
         flight_st->AddItem(Flight(num_flight, company, from, to, date, time, state, all_place, free_place));
     }
 
-    this->query->exec("SELECT t.num_ticket, p.num_passport, f.num_flight"
-                      "FROM ticket as t"
-                      "JOIN passenger as p ON t.id_passenger = p.id_passenger"
+    this->query->exec("SELECT t.num_ticket, p.num_passport, f.num_flight "
+                      "FROM ticket as t "
+                      "JOIN passenger as p ON t.id_passenger = p.id_passenger "
                       "JOIN flight as f ON t.id_flight = f.id_flight");
 
     while (this->query->next())
@@ -249,9 +234,9 @@ void Connection::Load(Storage<Airport>* airport_st, Storage<Flight>* flight_st, 
         ticket_st->AddItem(Ticket(num_ticket, num_passport, num_flight));
     }
 
-    this->query->exec("SELECT f.num_flight, s.num_certificate, p.purpose_name"
-                      "FROM purpose as p"
-                      "JOIN flight as f ON p.id_flight = f.id_flight"
+    this->query->exec("SELECT f.num_flight, s.num_certificate, p.purpose_name "
+                      "FROM purpose as p "
+                      "JOIN flight as f ON p.id_flight = f.id_flight "
                       "JOIN staff as s ON p.id_staff = s.id_staff");
 
     while (this->query->next())

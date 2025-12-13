@@ -6,7 +6,7 @@ Airport::Airport()
 }
 
 Airport::Airport(const QString& name, const unsigned short& rainfall, const unsigned short& speed,
-                 const unsigned short& direction, const unsigned short& temperature)
+                 const unsigned short& direction, const short& temperature)
 {
     this->name = name;
     this->rainfall = rainfall;
@@ -55,12 +55,12 @@ unsigned short Airport::GetDirection() const
     return this->direction;
 }
 
-void Airport::SetTemperature(const unsigned short& temperature)
+void Airport::SetTemperature(const short& temperature)
 {
     this->temperature = temperature;
 }
 
-unsigned short Airport::GetTemperature() const
+short Airport::GetTemperature() const
 {
     return this->temperature;
 }
