@@ -14,6 +14,9 @@ NumCertificateDialog::NumCertificateDialog(QWidget *parent)
     ui->num_certificate_edit->setValidator(val);
 
     connect(ui->num_certificate_edit, &QLineEdit::textChanged, this, &NumCertificateDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 NumCertificateDialog::~NumCertificateDialog()

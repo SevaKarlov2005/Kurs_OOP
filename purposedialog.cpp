@@ -28,6 +28,9 @@ PurposeDialog::PurposeDialog(Purpose* purpose, QWidget *parent)
     connect(ui->nomination_box, &QComboBox::currentIndexChanged, this, &PurposeDialog::Validation);
     connect(ui->num_flight_edit, &QLineEdit::textChanged, this, &PurposeDialog::Validation);
     connect(ui->num_certificate_edit, &QLineEdit::textChanged, this, &PurposeDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 PurposeDialog::~PurposeDialog()

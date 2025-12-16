@@ -18,6 +18,12 @@ MainWindow::MainWindow(QWidget *parent)
     this->ticket_window = new TicketWindow(this->database, this);
     this->purpose_window = new PurposeWindow(this->database, this);
 
+    this->thread = new QThread();
+    this->timer = new TimeController();
+
+    this->timer->moveToThread(this->thread);
+    this->thread->start();
+
     connect(ui->airport_button, &QPushButton::clicked, this, &MainWindow::OpenAirportWindow);
     connect(ui->passenger_button, &QPushButton::clicked, this, &MainWindow::OpenPassengerWindow);
     connect(ui->staff_button, &QPushButton::clicked, this, &MainWindow::OpenStaffWindow);
@@ -28,17 +34,22 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->save_button, &QPushButton::clicked, this, &MainWindow::Save);
     connect(ui->cancel_button, &QPushButton::clicked, this, &MainWindow::Cancel);
 
-    connect(this->database, &DataBase::ChangeAirport, this, &MainWindow::Update);
-    connect(this->database, &DataBase::ChangePassenger, this, &MainWindow::Update);
-    connect(this->database, &DataBase::ChangeStaff, this, &MainWindow::Update);
-    connect(this->database, &DataBase::ChangeFlight, this, &MainWindow::Update);
-    connect(this->database, &DataBase::ChangeTicket, this, &MainWindow::Update);
-    connect(this->database, &DataBase::ChangePurpose, this, &MainWindow::Update);
+    connect(this->database, &DataBase::NotifyCaretaker, this, &MainWindow::Update);
+
+    connect(this->thread, &QThread::started, this->timer, &TimeController::Timer);
+    connect(this->timer, &TimeController::NotifyFlight, this->flight_window, &FlightWindow::CheckFlights, Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
 {
     delete this->database;
+
+    if (thread && thread->isRunning()) {
+        this->thread->quit();
+        this->thread->wait(500);
+    }
+
+    delete ui;
 }
 
 void MainWindow::OpenAirportWindow()
@@ -121,10 +132,16 @@ void MainWindow::Cancel()
     this->database->SetPreviousState(memento);
 
     while (count > 0)
+    {
         this->database->SetPreviousState(this->caretaker.GetLast());
+        count--;
+    }
 
     if (this->caretaker.IsEmpty())
+    {
+        ui->save_button->setEnabled(false);
         ui->cancel_button->setEnabled(false);
+    }
 }
 
 void MainWindow::Update()

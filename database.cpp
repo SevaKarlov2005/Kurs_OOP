@@ -44,7 +44,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             QStringList str_list = memento.GetData().split('*', Qt::SkipEmptyParts);
 
             this->index = this->airport_st.FindItem(Airport(str_list[0], 0, 0, 0, 0),
-                                                [](const Airport& cur, const Airport& seek) { return cur.GetName() == seek.GetName(); }) * 10 + 1;
+                                                [](const Airport& cur, const Airport& seek) { return cur.GetName() == seek.GetName(); }) * 10 + 3;
 
             this->airport_st.RemoveItem(this->index / 10);
         }
@@ -64,7 +64,7 @@ void DataBase::SetPreviousState(const Memento& memento)
 
             this->airport_st.AddItem(Airport(str_list[0], str_list[1].toInt(), str_list[2].toInt(), str_list[3].toInt(), str_list[4].toInt()));
 
-            this->index = (this->airport_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->airport_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangeAirport();
@@ -76,7 +76,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             QStringList str_list = memento.GetData().split('*', Qt::SkipEmptyParts);
 
             this->index = this->passenger_st.FindItem(Passenger(str_list[0], "", QDate(), "", "", "", QDate()),
-                                                [](const Passenger& cur, const Passenger& seek) { return cur.GetNumPassport() == seek.GetNumPassport(); }) * 10 + 1;
+                                                [](const Passenger& cur, const Passenger& seek) { return cur.GetNumPassport() == seek.GetNumPassport(); }) * 10 + 3;
 
             this->passenger_st.RemoveItem(this->index / 10);
         }
@@ -97,7 +97,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             this->passenger_st.AddItem(Passenger(str_list[0], str_list[1], QDate::fromString(str_list[2], "dd.MM.yyyy"), str_list[3], str_list[4], str_list[5],
                                                  QDate::fromString(str_list[6], "dd.MM.yyyy")));
 
-            this->index = (this->passenger_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->passenger_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangePassenger();
@@ -109,7 +109,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             QStringList str_list = memento.GetData().split('*', Qt::SkipEmptyParts);
 
             this->index = this->ticket_st.FindItem(Ticket(str_list[0], "", ""),
-                                                  [](const Ticket& cur, const Ticket& seek) { return cur.GetNumTicket() == seek.GetNumTicket(); }) * 10 + 1;
+                                                  [](const Ticket& cur, const Ticket& seek) { return cur.GetNumTicket() == seek.GetNumTicket(); }) * 10 + 3;
 
             this->ticket_st.RemoveItem(this->index / 10);
         }
@@ -128,7 +128,7 @@ void DataBase::SetPreviousState(const Memento& memento)
 
             this->ticket_st.AddItem(Ticket(str_list[0], str_list[1], str_list[2]));
 
-            this->index = (this->ticket_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->ticket_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangeTicket();
@@ -140,7 +140,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             QStringList str_list = memento.GetData().split('*', Qt::SkipEmptyParts);
 
             this->index = this->flight_st.FindItem(Flight(str_list[0], "", "", "", QDate(), QTime(), FlightState::ON_TIME, 0, 0),
-                                                   [](const Flight& cur, const Flight& seek) { return cur.GetNumFlight() == seek.GetNumFlight(); }) * 10 + 1;
+                                                   [](const Flight& cur, const Flight& seek) { return cur.GetNumFlight() == seek.GetNumFlight(); }) * 10 + 3;
 
             this->flight_st.RemoveItem(this->index / 10);
         }
@@ -191,7 +191,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             this->flight_st.AddItem(Flight(str_list[0], str_list[1], str_list[2], str_list[3], QDate::fromString(str_list[4], "dd.MM.yyyy"),
                                            QTime::fromString(str_list[5]), state, str_list[7].toInt(), str_list[8].toInt()));
 
-            this->index = (this->flight_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->flight_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangeFlight();
@@ -203,7 +203,7 @@ void DataBase::SetPreviousState(const Memento& memento)
             QStringList str_list = memento.GetData().split('*', Qt::SkipEmptyParts);
 
             this->index = this->staff_st.FindItem(Staff(str_list[0], "", "", "", Profession::PILOT),
-                                                   [](const Staff& cur, const Staff& seek) { return cur.GetNumCertificate() == seek.GetNumCertificate(); }) * 10 + 1;
+                                                   [](const Staff& cur, const Staff& seek) { return cur.GetNumCertificate() == seek.GetNumCertificate(); }) * 10 + 3;
 
             this->staff_st.RemoveItem(this->index / 1);
         }
@@ -240,7 +240,7 @@ void DataBase::SetPreviousState(const Memento& memento)
 
             this->staff_st.AddItem(Staff(str_list[0], str_list[1], str_list[2], str_list[3], profession));
 
-            this->index = (this->staff_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->staff_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangeStaff();
@@ -256,7 +256,7 @@ void DataBase::SetPreviousState(const Memento& memento)
                                                   {
                                                       return cur.GetNumFlight() == seek.GetNumFlight() &&
                                                              cur.GetNumCertificate() == seek.GetNumCertificate();
-                                                  }) * 10 + 1;
+                                                  }) * 10 + 3;
 
             this->purpose_st.RemoveItem(this->index / 10);
         }
@@ -305,7 +305,7 @@ void DataBase::SetPreviousState(const Memento& memento)
 
             this->purpose_st.AddItem(Purpose(nomination, str_list[1], str_list[2]));
 
-            this->index = (this->purpose_st.GetSize() - 1) * 10 + 3;
+            this->index = (this->purpose_st.GetSize() - 1) * 10 + 1;
         }
 
         emit ChangePurpose();
@@ -352,6 +352,8 @@ void DataBase::AddAirport(const Airport& airport, const bool& flag)
 
     if (flag)
         emit ChangeAirport();
+
+    emit NotifyCaretaker();
 }
 
 Airport DataBase::GetAirport(const int& index) const
@@ -382,6 +384,8 @@ void DataBase::RemoveAirport(const int& index, const bool& flag)
 
     if (flag)
         emit ChangeAirport();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdateAirport(const Airport& value, const int& index, const bool& flag)
@@ -407,6 +411,8 @@ void DataBase::UpdateAirport(const Airport& value, const int& index, const bool&
 
     if (flag)
         emit ChangeAirport();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetAirportSize() const
@@ -451,6 +457,8 @@ void DataBase::AddFlight(const Flight& flight, const bool& flag)
 
     if (flag)
         emit ChangeFlight();
+
+    emit NotifyCaretaker();
 }
 
 Flight DataBase::GetFlight(const int& index) const
@@ -501,6 +509,8 @@ void DataBase::RemoveFlight(const int& index, const bool& flag)
 
     if (flag)
         emit ChangeFlight();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdateFlight(const Flight& value, const int& index, const bool& flag)
@@ -566,6 +576,8 @@ void DataBase::UpdateFlight(const Flight& value, const int& index, const bool& f
 
     if (flag)
         emit ChangeFlight();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetFlightSize() const
@@ -592,6 +604,8 @@ void DataBase::AddPassenger(const Passenger& passenger, const bool& flag)
 
     if (flag)
         emit ChangePassenger();
+
+    emit NotifyCaretaker();
 }
 
 Passenger DataBase::GetPassenger(const int& index) const
@@ -624,6 +638,8 @@ void DataBase::RemovePassenger(const int& index, const bool& flag)
 
     if (flag)
         emit ChangePassenger();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdatePassenger(const Passenger& value, const int& index, const bool& flag)
@@ -654,6 +670,8 @@ void DataBase::UpdatePassenger(const Passenger& value, const int& index, const b
 
     if (flag)
         emit ChangePassenger();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetPassengerSize() const
@@ -690,6 +708,8 @@ void DataBase::AddPurpose(const Purpose& purpose, const bool& flag)
 
     if (flag)
         emit ChangePurpose();
+
+    emit NotifyCaretaker();
 }
 
 Purpose DataBase::GetPurpose(const int& index) const
@@ -732,6 +752,8 @@ void DataBase::RemovePurpose(const int& index, const bool& flag)
 
     if (flag)
         emit ChangePurpose();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdatePurpose(const Purpose& value, const int& index, const bool& flag)
@@ -781,6 +803,8 @@ void DataBase::UpdatePurpose(const Purpose& value, const int& index, const bool&
 
     if (flag)
         emit ChangePurpose();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetPurposeSize() const
@@ -815,6 +839,8 @@ void DataBase::AddStaff(const Staff& staff, const bool& flag)
 
     if (flag)
         emit ChangeStaff();
+
+    emit NotifyCaretaker();
 }
 
 Staff DataBase::GetStaff(const int& index) const
@@ -855,6 +881,8 @@ void DataBase::RemoveStaff(const int& index, const bool& flag)
 
     if (flag)
         emit ChangeStaff();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdateStaff(const Staff& value, const int& index, const bool& flag)
@@ -900,6 +928,8 @@ void DataBase::UpdateStaff(const Staff& value, const int& index, const bool& fla
 
     if (flag)
         emit ChangeStaff();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetStaffSize() const
@@ -922,6 +952,8 @@ void DataBase::AddTicket(const Ticket& ticket, const bool& flag)
 
     if (flag)
         emit ChangeTicket();
+
+    emit NotifyCaretaker();
 }
 
 Ticket DataBase::GetTicket(const int& index) const
@@ -950,6 +982,8 @@ void DataBase::RemoveTicket(const int& index, const bool& flag)
 
     if (flag)
         emit ChangeTicket();
+
+    emit NotifyCaretaker();
 }
 
 void DataBase::UpdateTicket(const Ticket& value, const int& index, const bool& flag)
@@ -972,6 +1006,8 @@ void DataBase::UpdateTicket(const Ticket& value, const int& index, const bool& f
 
     if (flag)
         emit ChangeTicket();
+
+    emit NotifyCaretaker();
 }
 
 unsigned DataBase::GetTicketSize() const

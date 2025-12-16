@@ -1,23 +1,11 @@
 #include "flightdialog.h"
 #include "ui_flightdialog.h"
 
-FlightDialog::FlightDialog(Flight* flight, unsigned short mod, QWidget *parent)
+FlightDialog::FlightDialog(Flight* flight, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::FlightDialog)
 {
     ui->setupUi(this);
-
-    if (mod == 1)
-    {
-        ui->num_flight_edit->setEnabled(false);
-        ui->company_edit->setEnabled(false);
-        ui->from_edit->setEnabled(false);
-        ui->to_edit->setEnabled(false);
-        ui->date_date->setEnabled(false);
-        ui->time_time->setEnabled(false);
-        ui->all_place_spin->setEnabled(false);
-        ui->free_place_spin->setEnabled(false);
-    }
 
     if (flight)
     {
@@ -56,6 +44,9 @@ FlightDialog::FlightDialog(Flight* flight, unsigned short mod, QWidget *parent)
     connect(ui->state_box, &QComboBox::currentIndexChanged, this, &FlightDialog::Validation);
     connect(ui->all_place_spin, &QSpinBox::valueChanged, this, &FlightDialog::Validation);
     connect(ui->free_place_spin, &QSpinBox::valueChanged, this, &FlightDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 FlightDialog::~FlightDialog()

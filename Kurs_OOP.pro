@@ -57,7 +57,8 @@ SOURCES += \
     ticketproxymodel.cpp \
     ticketstrategy.cpp \
     tickettablemodel.cpp \
-    ticketwindow.cpp
+    ticketwindow.cpp \
+    timecontroller.cpp
 
 HEADERS += \
     airport.h \
@@ -110,7 +111,8 @@ HEADERS += \
     ticketproxymodel.h \
     ticketstrategy.h \
     tickettablemodel.h \
-    ticketwindow.h
+    ticketwindow.h \
+    timecontroller.h
 
 FORMS += \
     airportdialog.ui \

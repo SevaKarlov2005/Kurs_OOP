@@ -3,14 +3,11 @@
 
 #include <QRegularExpressionValidator>
 
-AirportDialog::AirportDialog(Airport* airport, unsigned short mod, QWidget *parent)
+AirportDialog::AirportDialog(Airport* airport, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::AirportDialog)
 {
     ui->setupUi(this);
-
-    if (mod == 1)
-        ui->airport_name_edit->setEnabled(false);
 
     if (airport)
     {
@@ -30,6 +27,9 @@ AirportDialog::AirportDialog(Airport* airport, unsigned short mod, QWidget *pare
     connect(ui->speed_spin, &QSpinBox::valueChanged, this, &AirportDialog::Validation);
     connect(ui->direction_spin, &QSpinBox::valueChanged, this, &AirportDialog::Validation);
     connect(ui->temperature_spin, &QSpinBox::valueChanged, this, &AirportDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 AirportDialog::~AirportDialog()

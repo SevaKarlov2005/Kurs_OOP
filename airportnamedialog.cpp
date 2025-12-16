@@ -14,6 +14,9 @@ AirportNameDialog::AirportNameDialog(QWidget *parent)
     ui->airport_name_edit->setValidator(val);
 
     connect(ui->airport_name_edit, &QLineEdit::textChanged, this, &AirportNameDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 AirportNameDialog::~AirportNameDialog()

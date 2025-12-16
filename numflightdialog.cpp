@@ -14,6 +14,9 @@ NumFlightDialog::NumFlightDialog(QWidget *parent)
     ui->num_flight_edit->setValidator(val);
 
     connect(ui->num_flight_edit, &QLineEdit::textChanged, this, &NumFlightDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 NumFlightDialog::~NumFlightDialog()

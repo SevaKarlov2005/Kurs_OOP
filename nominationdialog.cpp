@@ -20,6 +20,9 @@ NominationDialog::NominationDialog(QWidget *parent)
 
     connect(ui->num_flight_edit, &QLineEdit::textChanged, this, &NominationDialog::Validation);
     connect(ui->num_certificate_edit, &QLineEdit::textChanged, this, &NominationDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 NominationDialog::~NominationDialog()

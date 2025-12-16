@@ -15,7 +15,7 @@ class FlightDialog : public QDialog
 private:
     Ui::FlightDialog *ui;
 public:
-    explicit FlightDialog(Flight* flight, unsigned short mod, QWidget *parent = nullptr);
+    explicit FlightDialog(Flight* flight, QWidget *parent = nullptr);
     ~FlightDialog();
     void Validation() const;
     Flight GetData() const;

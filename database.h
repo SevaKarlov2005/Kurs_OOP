@@ -78,6 +78,7 @@ signals:
     void ChangeStaff();
     void ChangeTicket();
     void Reload();
+    void NotifyCaretaker();
 };
 
 #endif // DATABASE_H

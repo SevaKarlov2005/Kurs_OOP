@@ -31,6 +31,9 @@ TicketDialog::TicketDialog(Ticket* ticket, QWidget *parent)
     connect(ui->num_ticket_edit, &QLineEdit::textChanged, this, &TicketDialog::Validation);
     connect(ui->num_passport_edit, &QLineEdit::textChanged, this, &TicketDialog::Validation);
     connect(ui->num_flight_edit, &QLineEdit::textChanged, this, &TicketDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 TicketDialog::~TicketDialog()

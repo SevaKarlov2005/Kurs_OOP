@@ -25,6 +25,7 @@ public:
     void AddFlight();
     void ChangeFlight();
     void RemoveFlight();
+    void CheckFlights();
 };
 
 #endif // FLIGHTWINDOW_H

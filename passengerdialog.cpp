@@ -43,6 +43,9 @@ PassengerDialog::PassengerDialog(Passenger* passenger, QWidget *parent)
     connect(ui->name_edit, &QLineEdit::textChanged, this, &PassengerDialog::Validation);
     connect(ui->patronym_edit, &QLineEdit::textChanged, this, &PassengerDialog::Validation);
     connect(ui->birthday_date, &QDateEdit::dateChanged, this, &PassengerDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 PassengerDialog::~PassengerDialog()

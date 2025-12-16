@@ -38,6 +38,9 @@ StaffDialog::StaffDialog(Staff* staff, QWidget *parent)
     connect(ui->name_edit, &QLineEdit::textChanged, this, &StaffDialog::Validation);
     connect(ui->patronym_edit, &QLineEdit::textChanged, this, &StaffDialog::Validation);
     connect(ui->profession_box, &QComboBox::currentIndexChanged, this, &StaffDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 StaffDialog::~StaffDialog()

@@ -14,6 +14,9 @@ NumPassportDialog::NumPassportDialog(QWidget *parent)
     ui->num_passport_edit->setValidator(val);
 
     connect(ui->num_passport_edit, &QLineEdit::textChanged, this, &NumPassportDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 NumPassportDialog::~NumPassportDialog()

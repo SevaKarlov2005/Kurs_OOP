@@ -15,7 +15,7 @@ class AirportDialog : public QDialog
 private:
     Ui::AirportDialog *ui;
 public:
-    explicit AirportDialog(Airport* airport, unsigned short mod, QWidget *parent = nullptr);
+    explicit AirportDialog(Airport* airport, QWidget *parent = nullptr);
     ~AirportDialog();
     void Validation() const;
     Airport GetData() const;

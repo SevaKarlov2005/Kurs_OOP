@@ -5,7 +5,7 @@ PurposeTableModel::PurposeTableModel(DataBase* db, QObject *parent)
 {
     this->database = db;
 
-    connect(this->database, &DataBase::ChangeTicket, this, &PurposeTableModel::Update);
+    connect(this->database, &DataBase::ChangePurpose, this, &PurposeTableModel::Update);
     connect(this->database, &DataBase::Reload, this, &PurposeTableModel::Reload);
 }
 

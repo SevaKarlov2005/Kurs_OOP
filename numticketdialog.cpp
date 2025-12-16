@@ -14,6 +14,9 @@ NumTicketDialog::NumTicketDialog(QWidget *parent)
     ui->num_ticket_edit->setValidator(val);
 
     connect(ui->num_ticket_edit, &QLineEdit::textChanged, this, &NumTicketDialog::Validation);
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 NumTicketDialog::~NumTicketDialog()
